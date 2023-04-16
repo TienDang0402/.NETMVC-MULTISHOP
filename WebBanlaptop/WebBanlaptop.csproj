@@ -470,6 +470,7 @@
     <Content Include="Content\register\vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="Content\register\vendor\select2\select2.min.css" />
     <Content Include="Content\register\vendor\select2\select2.min.js" />
+    <Content Include="Content\star-rating.css" />
     <Content Include="Content\styleAdminLogin\.gitignore" />
     <Content Include="Content\styleAdminLogin\css\sb-admin-2.css" />
     <Content Include="Content\styleAdminLogin\css\sb-admin-2.min.css" />
@@ -2200,6 +2201,7 @@
       <DependentUpon>QLBANLAPTOPEntities.edmx</DependentUpon>
       <LastGenOutput>QLBANLAPTOPEntities.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\star-rating.js" />
     <Content Include="Scripts\tinymce\icons\default\icons.js" />
     <Content Include="Scripts\tinymce\icons\default\icons.min.js" />
     <Content Include="Scripts\tinymce\license.txt" />

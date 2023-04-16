@@ -859,7 +859,6 @@ namespace WebBanlaptop.Controllers
         // sua san pham
 
         [HttpGet]
-
         public ActionResult SuaSP(int? id)
         {
             if (!checkLogin()) return RedirectToAction("Login");
@@ -873,7 +872,7 @@ namespace WebBanlaptop.Controllers
         }
         [ValidateInput(false)]
         [HttpPost]
-        public ActionResult SuaSP(SANPHAM sp, HttpPostedFileBase HINHANH, int? id)
+        public ActionResult SuaSP(SANPHAM sp, HttpPostedFileBase HINHANH, int? id, MAUSAC ms, FormCollection f)
         {
 
             QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
@@ -916,8 +915,9 @@ namespace WebBanlaptop.Controllers
                     }
 
                 }
-
+            
             }
+            
 
             return RedirectToAction("ListSanPham");
         }
@@ -927,8 +927,6 @@ namespace WebBanlaptop.Controllers
         {
             if (!checkLogin()) return RedirectToAction("Login");
             QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
-
-            //var sp = db.SANPHAM.FirstOrDefault(n => n.MASP == );
             var ctsp = db.CHITIETSP.FirstOrDefault(n => n.MASP == id);
             
                 var mausac = db.MAUSAC.FirstOrDefault(p => p.MAMAU == ctsp.MAMAU);
@@ -945,13 +943,15 @@ namespace WebBanlaptop.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SuaCTSP(int? id,FormCollection f)
+        public ActionResult SuaCTSP(int? id,FormCollection f, MAUSAC ms)
         {
             QLBANLAPTOPEntities db = new QLBANLAPTOPEntities();
             var itemCtsp = db.CHITIETSP.FirstOrDefault(n => n.MASP == id);
-            if(itemCtsp!= null)
+            
+            if (itemCtsp!= null)
             {
                 itemCtsp.SOLUONGTON = int.Parse(f["SOLUONGTON"].ToString());
+                
                 db.CHITIETSP.AddOrUpdate(itemCtsp);
                 db.SaveChanges();
             }

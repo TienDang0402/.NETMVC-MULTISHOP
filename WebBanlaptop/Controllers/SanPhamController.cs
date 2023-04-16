@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -89,21 +90,12 @@ namespace WebBanlaptop.Controllers
             return View();
         }
 
-        public JsonResult SapXep(string type,List<SANPHAM> model)
+      
+        public ActionResult SapXep(bool isLowToHigh = true)
         {
-            if (type.Equals("LowHigh"))
-            {
-                var lstSP = model.OrderBy(n => n.DONGIA);
-                ViewBag.lstSP = lstSP;
-                //return View(lstSP);
-            }
-            else if (type.Equals("HighLow"))
-            {
-                var lstSP = model.OrderByDescending(n => n.DONGIA);
-                ViewBag.lstSP = lstSP;
-                //return View(lstSP);
-            }
-            return Json(type);
+            var sp = db.SANPHAM.ToList();
+            var sapxepsp = isLowToHigh ? sp.OrderBy(p=>p.DONGIA).ToList() : sp.OrderByDescending(p=>p.DONGIA).ToList();
+            return View(sapxepsp);
         }
         public ActionResult showSPTheoNSX1(int? MaLSP)
         {

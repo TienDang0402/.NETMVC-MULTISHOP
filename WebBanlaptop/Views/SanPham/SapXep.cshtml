@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "SapXep";
     Layout = "~/Views/Layout/_HomeLayout.cshtml";
-    IEnumerable<SANPHAM> lst = (IEnumerable<SANPHAM>)ViewBag.lstSP;
+    IEnumerable<SANPHAM> sxsp = (IEnumerable<SANPHAM>)ViewBag.sxsp;
 
 }
-@Html.Partial("showSPPartial", lst)
+@Html.Partial("showSPPartial", sxsp)
 

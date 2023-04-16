@@ -21,6 +21,8 @@ namespace WebBanlaptop.Models
         public Nullable<System.DateTime> NGAYGUI { get; set; }
         public string TENKH { get; set; }
         public bool TRANGTHAI { get; set; }
+
+
     
         public virtual KHACHHANG KHACHHANG { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
